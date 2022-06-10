@@ -2,6 +2,7 @@
     body {
         font-family: 'Roboto', 'Raleway', sans-serif;
         color:var(--main-color);
+        
     }
 
     :root {
@@ -89,6 +90,9 @@
         font-size: 14px;
         line-height: 1.17;
         letter-spacing: 0.02em;
+        transition-property: color;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); 
     }    
 
     .link:hover, 
@@ -101,6 +105,9 @@
         font-size: 14px;
         color: var(--link-color);
         padding: 32px 0;
+        transition-property: color;
+        transition-duration: 250ms;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .link-contact:hover,
@@ -122,7 +129,7 @@ a svg {
 }
 .icon-contact {
     margin-right: 10px;
-    
+   
 }
 
 ul.list {
@@ -218,6 +225,10 @@ ul .porfolio-list-item:not(:last-child) {
     line-height: 1.875;
     letter-spacing: 0.03em;
     border:none;
+    transition-property: background-color, color, box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+   
 }
 
 .button-portfolio:hover,
@@ -261,21 +272,78 @@ ul .portfolio-list-card {
     background: #FFFFFF;
     border: 1px solid #EEEEEE;
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition-property: box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.portfolio-card:hover .overlay,
+.portfolio-card:focus .overlay {
+    opacity: 1;
+    transform: translatey(0);
+        
 }
 .portfolio-card:hover,
 .portfolio-card:focus {
-    border: 1px solid #EEEEEE;
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+}
 
+.portfolio-card>img {
+    position: relative;
+    
+}
+
+.overlay {
+    /* hover overlay */
+    margin: 0;
+    position: absolute;
+    width: 100%;
+    height: 294px;
+    left: 0px;
+    bottom: 126px;
+    overflow: hidden;
+    
+    background: rgba(33, 150, 243, 0.9);
+    transform: translatey(100%);
+    transition-property: transform;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    opacity: 0;
+}
+.overlay-text {
+        position: absolute;
+        width: 301px;
+        height: 196px;
+        left: 24px;
+        top: 49px;
+   
+        font-family: 'Roboto';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 28px;
+        /* or 156% */
+        letter-spacing: 0.03em;
+        color: #FFFFFF;
 }
 
 .figcaption-portfolio .accent-card {
     text-align: left;
     padding-top: 4px;
 }
+.portfolio-card >figcaption {
+    z-index: 3;
+    position: sticky;
+    opacity: 1;
+    bottom: 0px;
+    left: 0px;
+    background-color: #FFFFFF;
+}
 
 .figcaption-portfolio {
     padding: 20px 24px;
+    
 }
 /*nasze atuty*/
 
@@ -351,6 +419,30 @@ h2 {
 .list-images .container {
     padding-bottom: 94px;
 }
+.list-images-item {
+    position: relative;
+}
+
+.label {
+    font-size: 14px;
+    color: #FFFFFF;
+
+    font-weight: 700;
+    line-height: 16px;
+    text-align: center;
+    justify-items: center;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    background: rgba(47, 48, 58, 0.8);
+    padding-top: 27px;
+
+    position: absolute;
+    width: 370px;
+    height: 70px;
+    left: 0px;
+    bottom: 0px;
+       
+}
 
     /*nasz zespół*/
 
@@ -406,6 +498,9 @@ h3 {
     background-color: #FFFFFF;
     color: var(--link-color1);
     margin-right: 10px;
+    transition-property: background-color, color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-icon {
@@ -461,6 +556,9 @@ ul .social-list {
     display: flex;
     justify-content: center;
     color: var(--link-color1);
+    transition-property: color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
         
 }
 .client-item-list-icon {
@@ -545,7 +643,10 @@ a.address {
     align-items: center;
     border-radius: 50%;
     color: #FFFFFF;
-    background-color: rgba(255, 255, 255, 0.1)
+    background-color: rgba(255, 255, 255, 0.1);
+    transition-property: background-color, color;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-social-icon {
@@ -564,6 +665,69 @@ a.address {
 }
 .footer-social-list-item_link {
     margin-right: 10px;
+}
+
+/*podkreślenie bieżącej strony*/
+
+.active::after {
+    content: "";
+    display: block;
+    width: 100%;
+    border-top: 4px solid #2196F3;
+    border-radius: 2px;
+    position: relative;
+    top: 30px;
+    background: #2196F3;
+    margin-bottom: -6px;
+}
+
+  li .active {
+      position: relative;
+  }  
+
+/*backdrop*/
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #E5E5E5;
+    background: rgba(0, 0, 0, 0.2);
+}
+.modal {    
+/* Okno modalne */
+    position: absolute;
+    width: 528px;
+    height: 581px;
+    left: 50%;
+    top: 50%;
+    background: #FFFFFF;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    transform: translate( -50%, -50%);
+    
+}
+
+.is-hidden {
+    opacity:0;
+    visibility: hidden;
+    pointer-events: none;
+}
+.close-btn {
+    /* close */
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 490px;
+    top: 8px;
+    background-color: #FFFFFF;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    font-size: 11px;
+    display: block;
+    justify-items: center;
 }
 
 
