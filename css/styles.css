@@ -333,7 +333,7 @@ ul .portfolio-list-card {
     padding-top: 4px;
 }
 .portfolio-card >figcaption {
-    z-index: 3;
+    /*z-index: 3;*/
     position: sticky;
     opacity: 1;
     bottom: 0px;
