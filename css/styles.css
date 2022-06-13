@@ -695,11 +695,13 @@ a.address {
     height: 100%;
     background-color: #E5E5E5;
     background: rgba(0, 0, 0, 0.2);
-    transition-property: transform;
+    transition-property: transform, scale, opacity;
+    transition: 2500ms cubic-bezier(0.19, 1, 0.22, 1);
     animation-name: modalmove;
     animation-duration: 3000ms;
-    animation-iteration-count: initial;
+    animation-iteration-count: 1;
     animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+   
 }
 .modal {    
 /* Okno modalne */
@@ -711,37 +713,23 @@ a.address {
     background: #FFFFFF;
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 4px;
-    transform: translate( -50%, -50%);
-    /*animation-name: modalmove;
-    animation-duration: 4000ms;
-    animation-iteration-count: initial;
-    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
-    */
+    transition-property: transform, scale, opacity;
+    transform: translate(-50%, -50%);
+   
 }
 @keyframes modalmove {
     0%
-    {transform: translate(0,0);
-    transform: scale(0%);}
-        
+    {
+    transform: scale(0%);
+        opacity: 0.7;}
     50%
-    {transform: translate(50%, 50%);
-    transform: scale(50%);}
-   
+    {
+    transform: scale(50%);
+   opacity: 0.7; }
     100%
-    {transform: translate(100%, 100%);
-    transform: scale(100%);}
-    
-}
-
-@keyframes modalscale {
-    0% 
-    {transform: scale(0%);}
-    
-    50% 
-    {transform: scale(50%);}
-    
-    100% 
-    {transform: scale(100%);}
+    {
+    transform: scale(100%);
+        opacity: 1;}
 }
 
 .is-hidden {
@@ -759,10 +747,14 @@ a.address {
     background-color: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 50%;
-    font-size: 11px;
+    font-size: 15px;
     display: block;
     justify-items: center;
     
 }
 
+.is-hidden .modal {
+    transform: translate(100%);
+    transition: 2500ms cubic-bezier(0.19, 1, 0.22, 1);
+}
 
