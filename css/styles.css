@@ -698,7 +698,7 @@ a.address {
     transition-property: transform, scale, opacity;
     transition: 2500ms cubic-bezier(0.19, 1, 0.22, 1);
     animation-name: modalmove;
-    animation-duration: 3000ms;
+    animation-duration: 4000ms;
     animation-iteration-count: 1;
     animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
    
@@ -754,7 +754,7 @@ a.address {
 }
 
 .is-hidden .modal {
-    transform: translate(100%);
+    transform: translate(-50%);
     transition: 2500ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
